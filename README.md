@@ -58,6 +58,16 @@ Source: https://www.kaggle.com/datasets/sohumgokhale/multi-platform-social-senti
 └── multi_platform_social_sentiment_evolution.csv
 ```
 
+## Results (`Network_graph/results/`)
+
+Per platform, the pipeline writes:
+
+| Category | Contents |
+|---|---|
+| Metrics | Raw and summary accuracy/precision/recall/F1/ROC-AUC/PR-AUC per variant and seed, the threshold-tuned control (`no_graph_tau`), and paired deltas vs. `no_graph` with a positive/negative/trade-off classification |
+| Graph diagnostics | Node/edge/degree statistics with the train–test leakage audit, and relation weights with raw vs. permutation-corrected mutual information |
+| Interpretability | Targeted ablation, error-transition counts, and grouped SHAP attribution (summary + per-seed CSVs and plots) for the full `data_driven_homophily+node2vec64` variant |
+
 ## Reproducing the paper's tables
 
 - **Table 1** (dataset & graph statistics) ← `Network_graph/results/{platform}_graph_statistics.csv`, averaged over the 5 seeds.
